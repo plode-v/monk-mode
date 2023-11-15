@@ -26,8 +26,8 @@ const styles = StyleSheet.create({
     height: '100%',
     backgroundColor: "#FAFAFA",
     display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
+    paddingTop: Platform.OS === 'android' && 10,
+    backgroundColor: "#f7f7f0",
   },
   text: {
     color: 'white'
@@ -39,21 +39,3 @@ const styles = StyleSheet.create({
     backgroundColor: 'blue',
   }
 });
-
-Navigation.registerComponent("Homepage", () => Homepage);
-
-Navigation.events().registerAppLaunchedListener(async () => {
-  Navigation.setRoot({
-    root: {
-      stack: {
-        children: [
-          {
-            component: {
-              name: 'Home'
-            }
-          }
-        ]
-      }
-    }
-  })
-})
